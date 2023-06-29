@@ -8,14 +8,14 @@ class Game {
       this.height = "600px";
       this.width = "500px";
       this.objectsObject = 
-      { couch:new Object('Couch','nothing in there','109px','157px','12px','307px',false),
-      piano:new Object('Piano','you find a key','198px','207px','286px','265px','Door A'),
-      doorA:new Object('Door A','This door is locked','116px','193px','183px','57px',
+      { couch:new Object('Couch','nothing in there','nothing in there','109px','157px','12px','307px',false),
+      piano:new Object('Piano','you find a key','you already found this key','198px','207px','286px','265px','Door A'),
+      doorA:new Object('Door A','This door is locked','This door is unlocked','116px','193px','183px','57px',
                      false,['Living Room','Bedroom']),
-      bed:new Object('Bed','nothing in there','171px','104px','186px','294px',false),
-      doorB:new Object('Door B','This door is locked','0px','0px','0px','0px',
+      bed:new Object('Bed','nothing in there','nothing in there','171px','104px','186px','294px',false),
+      doorB:new Object('Door B','This door is locked','This door is unlocked','0px','0px','0px','0px',
                       false,['Bedroom','Outside']),
-      kingBed:new Object('King Bed','nothing in there','0px','0px','0px','0px',false)};
+      kingBed:new Object('King Bed','nothing in there','nothing in there','0px','0px','0px','0px',false)};
 
       this.roomsObject= 
       {'Living Room': new Room(['couch','piano','doorA'],'../images/room1.jpg'),

@@ -1,7 +1,8 @@
 class Object {
-    constructor(name, clue,height, width, left,top, key, doorTo=false) {
+    constructor(name, clue, clue2,height, width, left,top, key, doorTo=false) {
       this.interacted = false;
       this.clue = clue;
+      this.clueInteraction = clue2
       this.name = name;
       this.height = height;
       this.width = width;
@@ -13,10 +14,9 @@ class Object {
     }
     interaction(game) {
       if (this.doorTo) { this.open(game); return }
-      this.interacted = true;
-      //if (new_text) { this.clue = new_text }
       if (this.key) { game.player.keysCollected.push(this.key) }
-      console.log(this)
+      this.popup(game);
+      this.interacted = true;
     }
   
     open(game) {
@@ -31,5 +31,16 @@ class Object {
         game.play()
       }
 
+    }
+
+    popup(game){
+      let popup = document.getElementById('cluePopup');
+      popup.classList.add('show')
+      let cluepop;
+      if (this.interacted){cluepop=this.clueInteraction} else{cluepop=this.clue}
+      document.querySelector('#cluePopup>.popup-content>h1').innerHTML=`You check out the ${this.name} ${cluepop}`
+      document.querySelector('#closePopup').addEventListener("click", function () {
+        popup.classList.remove("show");
+    });
     }
   };
