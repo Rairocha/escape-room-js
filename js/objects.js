@@ -1,13 +1,13 @@
 class Object {
-    constructor(name, clue, clue2,height, width, left,top, key, doorTo=false) {
+    constructor(name, clue, clue2,position, key, doorTo=false) {
       this.interacted = false;
       this.clue = clue;
       this.clueInteraction = clue2
       this.name = name;
-      this.height = height;
-      this.width = width;
-      this.top=top;
-      this.left = left;
+      this.height = position.height;
+      this.width = position.width;
+      this.top=position.top;
+      this.left = position.left;
       this.key = key;
       this.doorTo = doorTo;
 
@@ -38,7 +38,7 @@ class Object {
       popup.classList.add('show')
       let cluepop;
       if (this.interacted){cluepop=this.clueInteraction} else{cluepop=this.clue}
-      document.querySelector('#cluePopup>.popup-content>h1').innerHTML=`You check out the ${this.name} ${cluepop}`
+      document.querySelector('#cluePopup>.popup-content>h4').innerHTML=`You check out the ${this.name} ${cluepop}`
       document.querySelector('#closePopup').addEventListener("click", function () {
         popup.classList.remove("show");
     });

@@ -8,14 +8,22 @@ class Game {
       this.height = "600px";
       this.width = "500px";
       this.objectsObject = 
-      { couch:new Object('Couch','nothing in there','nothing in there','109px','157px','12px','307px',false),
-      piano:new Object('Piano','you find a key','you already found this key','198px','207px','286px','265px','Door A'),
-      doorA:new Object('Door A','This door is locked','This door is unlocked','116px','193px','183px','57px',
-                     false,['Living Room','Bedroom']),
-      bed:new Object('Bed','nothing in there','nothing in there','171px','104px','186px','294px',false),
-      doorB:new Object('Door B','This door is locked','This door is unlocked','0px','0px','0px','0px',
-                      false,['Bedroom','Outside']),
-      kingBed:new Object('King Bed','nothing in there','nothing in there','0px','0px','0px','0px',false)};
+      { couch:new Object('Couch','nothing in there','nothing in there',
+                {height:'109px',width:'157px',left:'12px',top:'307px'},false),
+      piano:new Object('Piano','you find a key','you already found this key',
+                {height:'198px',width:'207px',left:'286px',top:'265px'},'Door A'),
+      doorA:new Object('Door A','This door is locked','This door is unlocked',
+                        {height:{'Living Room':'116px','Bedroom':'212px'},
+                        width:{'Living Room':'193px','Bedroom':'34px'},
+                        left:{'Living Room':'183px','Bedroom':'160px'},
+                        top:{'Living Room':'57px','Bedroom':'72px'}},
+                        false,['Living Room','Bedroom']),
+      bed:new Object('Bed','nothing in there','nothing in there',
+                {height:'171px',width:'104px',left:'186px',top:'294px'},false),
+      doorB:new Object('Door B','This door is locked','This door is unlocked',
+            {height:'0px',width:'0px',left:'0px',top:'0px'},false,['Bedroom','Outside']),
+      kingBed:new Object('King Bed','nothing in there','nothing in there',
+                {height:'0px',width:'0px',left:'0px',top:'0px'},false)};
 
       this.roomsObject= 
       {'Living Room': new Room(['couch','piano','doorA'],'../images/room1.jpg'),
@@ -54,10 +62,20 @@ explore(){
         let furniture = this.gameScreen.appendChild(document.createElement("div"));
         furniture.classList.add('furniture');
         furniture.style.position='relative';
+        console.log(typeof this.objectsObject[element].top)
+        if (typeof this.objectsObject[element].top==='string'){
+
         furniture.style.top=this.objectsObject[element].top;
         furniture.style.left=this.objectsObject[element].left;
         furniture.style.width=this.objectsObject[element].width;
-        furniture.style.height=this.objectsObject[element].height;
+        furniture.style.height=this.objectsObject[element].height;}
+
+        else {
+        furniture.style.top=this.objectsObject[element].top[this.player.currentRoom];
+        furniture.style.left=this.objectsObject[element].left[this.player.currentRoom];
+        furniture.style.width=this.objectsObject[element].width[this.player.currentRoom];
+        furniture.style.height=this.objectsObject[element].height[this.player.currentRoom];
+        }
         furniture.style.cursor='pointer';
         furniture.id = element;
         furniture.addEventListener('click',()=>this.objectsObject[element].interaction(this))

@@ -104,7 +104,7 @@ body button {
   margin-right: auto;
   align-self: flex-start;
 }
-.popup-content h1{color: #096a80;}
+.popup-content h4{color: #096a80;}
 .show {
   display: block;
 }
