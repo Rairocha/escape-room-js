@@ -30,6 +30,7 @@ class Object {
         game.gameScreen.innerHTML = ''
         game.play()
       }
+      else{this.popup(game)}
 
     }
 
@@ -37,10 +38,20 @@ class Object {
       let popup = document.getElementById('cluePopup');
       popup.style.display='block';
       let cluepop;
+      console.log(game.player.currentRoom);
       if (this.interacted){cluepop=this.clueInteraction} else{cluepop=this.clue}
       document.querySelector('#cluePopup>.popup-content>h4').innerHTML=`You check out the ${this.name} ${cluepop}`
       document.querySelector('#closePopup').addEventListener("click", function () {
         popup.style.display='none';
+        
+        if (game.player.currentRoom==game.player.targetRoom){
+          console.log(game.player.currentRoom);
+          console.log(game.player.targetRoom);
+          console.log(game.player.currentRoom==game.player.targetRoom);
+          game.gameScreen.style.display = "none";
+          // Show end game screen
+          game.gameEndScreen.style.display = "block";
+        }
     });
     }
   };

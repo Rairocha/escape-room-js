@@ -40,10 +40,10 @@ class Game {
   start() {
     this.gameScreen.style.height = this.height;
     this.gameScreen.style.width = this.width;
-
+    this.gameScreen.innerHTML = "";
     // Hide the start screen
     this.startScreen.style.display = "none";
-    
+    this.gameEndScreen.style.display = "none";
     this.startScreen.style.height = "0px"
     // Show the game screen
     this.gameScreen.style.display = "block";
@@ -52,21 +52,14 @@ class Game {
     this.play();
      };
 play(){
-        if(this.player.currentRoom == this.player.targetRoom){
-            this.explore();
-            return
-        }
-        else{this.explore()}
-        };
-explore(){
-    console.log(`You are in the ${this.player.currentRoom} which contains ${this.roomsObject[this.player.currentRoom].objects}`);
-    this.gameScreen.style.backgroundImage = `url(${this.roomsObject[this.player.currentRoom].image})`
+    // console.log(`You are in the ${this.player.currentRoom} which contains ${this.roomsObject[this.player.currentRoom].objects}`);
+    this.gameScreen.style.backgroundImage = `url(./${this.roomsObject[this.player.currentRoom].image})`
     this.roomsObject[this.player.currentRoom].objects.forEach(element => {
-        console.log(element);
+        
         let furniture = this.gameScreen.appendChild(document.createElement("div"));
         furniture.classList.add('furniture');
         furniture.style.position='relative';
-        console.log(typeof this.objectsObject[element].top)
+
         if (typeof this.objectsObject[element].top==='string'){
 
         furniture.style.top=this.objectsObject[element].top;
@@ -83,10 +76,6 @@ explore(){
         furniture.style.cursor='pointer';
         furniture.id = element;
         furniture.addEventListener('click',()=>this.objectsObject[element].interaction(this))
-    })
-  //roomsObject[player.currentRoom].interact('piano','Beautiful music');
-  //roomsObject[player.currentRoom].interact('doorA');
-  //console.log(player.currentRoom)
-  
+    })  
   };
 };
