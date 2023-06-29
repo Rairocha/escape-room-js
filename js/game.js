@@ -53,7 +53,7 @@ class Game {
      };
 play(){
     // console.log(`You are in the ${this.player.currentRoom} which contains ${this.roomsObject[this.player.currentRoom].objects}`);
-    this.gameScreen.style.backgroundImage = `url(${this.roomsObject[this.player.currentRoom].image})`
+    this.gameScreen.style.backgroundImage = `url("${this.roomsObject[this.player.currentRoom].image}")`
     this.roomsObject[this.player.currentRoom].objects.forEach(element => {
         
         let furniture = this.gameScreen.appendChild(document.createElement("div"));
