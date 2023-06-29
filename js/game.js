@@ -50,6 +50,7 @@ class Game {
 
     // Start the game loop
     this.play();
+    return
      };
 play(){
     // console.log(`You are in the ${this.player.currentRoom} which contains ${this.roomsObject[this.player.currentRoom].objects}`);
@@ -77,5 +78,7 @@ play(){
         furniture.id = element;
         furniture.addEventListener('click',()=>this.objectsObject[element].interaction(this))
     })  
-  };
+    return
+    };
+  
 };

@@ -7,6 +7,6 @@ class Room{
         if (this.objects.includes(elementName)){
              objectsObject[elementName].interaction(text,player)
         }
-
+    return
     }
 };

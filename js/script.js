@@ -1,6 +1,7 @@
 function start(){
     let game = new Game()
     game.start();
+    return
 };
 window.onload = function () {
     const startButton = document.getElementById("start-button");
@@ -12,6 +13,5 @@ window.onload = function () {
     })
     restartButton.addEventListener("click", function () {
         // Call the restartGame function when the button is clicked
-        delete game;
-        start();
+        window.location.reload();
       });};

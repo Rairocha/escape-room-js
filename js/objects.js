@@ -17,6 +17,7 @@ class Object {
       if (this.key) { game.player.keysCollected.push(this.key) }
       this.popup(game);
       this.interacted = true;
+      return
     }
   
     open(game) {
@@ -31,7 +32,7 @@ class Object {
         game.play()
       }
       else{this.popup(game)}
-
+      return
     }
 
     popup(game){
@@ -51,7 +52,9 @@ class Object {
           game.gameScreen.style.display = "none";
           // Show end game screen
           game.gameEndScreen.style.display = "block";
+          
         }
     });
+    return
     }
   };
