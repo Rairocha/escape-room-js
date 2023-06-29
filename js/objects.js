@@ -11,11 +11,12 @@ class Object {
       this.doorTo = doorTo;
 
     }
-    interaction(new_text, game) {
+    interaction(game) {
       if (this.doorTo) { this.open(game); return }
       this.interacted = true;
-      if (new_text) { this.clue = new_text }
+      //if (new_text) { this.clue = new_text }
       if (this.key) { game.player.keysCollected.push(this.key) }
+      console.log(this)
     }
   
     open(game) {
@@ -26,7 +27,8 @@ class Object {
         this.clue = "This door is open";}
       if (game.player.openDoors.includes(this.name)){
         game.player.currentRoom = this.doorTo.filter(r => r!=game.player.currentRoom)[0]
-        game.gameScreen.style.backgroundImage = `url(${game.roomsObject[game.player.currentRoom].image})`
+        game.gameScreen.innerHTML = ''
+        game.play()
       }
 
     }

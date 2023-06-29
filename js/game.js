@@ -4,13 +4,13 @@ class Game {
       this.startScreen = document.getElementById("game-intro");
       this.gameScreen = document.getElementById("game-screen");
       this.gameEndScreen = document.getElementById("game-end");
-      this.player = new Player();
+      this.player = new Player('Outside','Living Room');
       this.height = "600px";
       this.width = "500px";
       this.objectsObject = 
       { couch:new Object('Couch','nothing in there','109px','157px','12px','307px',false),
       piano:new Object('Piano','you find a key','198px','207px','286px','265px','Door A'),
-      doorA:new Object('Door A','This door is locked','116px','193px','183px','147px',
+      doorA:new Object('Door A','This door is locked','116px','193px','183px','57px',
                      false,['Living Room','Bedroom']),
       bed:new Object('Bed','nothing in there','171px','104px','186px','294px',false),
       doorB:new Object('Door B','This door is locked','0px','0px','0px','0px',
@@ -60,9 +60,7 @@ explore(){
         furniture.style.height=this.objectsObject[element].height;
         furniture.style.cursor='pointer';
         furniture.id = element;
-    })
-    document.querySelectorAll('.furniture').forEach(function(f){
-
+        furniture.addEventListener('click',()=>this.objectsObject[element].interaction(this))
     })
   //roomsObject[player.currentRoom].interact('piano','Beautiful music');
   //roomsObject[player.currentRoom].interact('doorA');

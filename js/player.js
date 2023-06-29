@@ -1,8 +1,8 @@
 class Player{
-    constructor(){
+    constructor(target,current){
         this.keysCollected=[];
         this.openDoors = [];
-        this.targetRoom='Bedroom';
-        this.currentRoom = 'Living Room';
+        this.targetRoom=target;
+        this.currentRoom = current;
     }
 };
