@@ -29,9 +29,9 @@ class Game {
         };
 
       this.roomsObject= 
-      {'Living Room': new Room(['couch','piano','doorA'],'../images/room1.jpg'),
-      Bedroom : new Room(['bed','doorA','doorB'],'../../images/room2.jpg'),
-      Outside: new Room(['winFlag'],'../../images/outside.jpg')};
+      {'Living Room': new Room(['couch','piano','doorA'],'./images/room1.jpg'),
+      Bedroom : new Room(['bed','doorA','doorB'],'./images/room2.jpg'),
+      Outside: new Room(['winFlag'],'./images/outside.jpg')};
       this.score = 0;
       this.lives = 3;
       this.gameIsOver = false;
