@@ -19,15 +19,19 @@ class Game {
                         top:{'Living Room':'57px','Bedroom':'72px'}},
                         false,['Living Room','Bedroom']),
       bed:new Object('Bed','nothing in there','nothing in there',
-                {height:'171px',width:'104px',left:'186px',top:'294px'},false),
+                {height:'171px',width:'104px',left:'186px',top:'294px'},'Door B'),
       doorB:new Object('Door B','This door is locked','This door is unlocked',
-            {height:'0px',width:'0px',left:'0px',top:'0px'},false,['Bedroom','Outside']),
+            {height:'100%',width:'10%',left:'290px',top:'0px'},false,['Bedroom','Outside']),
       kingBed:new Object('King Bed','nothing in there','nothing in there',
-                {height:'0px',width:'0px',left:'0px',top:'0px'},false)};
+                {height:'0px',width:'0px',left:'0px',top:'0px'},false),
+      winFlag:new Object('The outside word','Congrats you win','Congrats you win',
+                {height:'100%',width:'100%',left:'0px',top:'0px'},false)
+        };
 
       this.roomsObject= 
       {'Living Room': new Room(['couch','piano','doorA'],'../images/room1.jpg'),
-      Bedroom : new Room(['bed','doorA','doorB'],'../images/room2.jpg')};
+      Bedroom : new Room(['bed','doorA','doorB'],'../images/room2.jpg'),
+      Outside: new Room(['winFlag'],'../images/outside.jpg')};
       this.score = 0;
       this.lives = 3;
       this.gameIsOver = false;
@@ -49,7 +53,7 @@ class Game {
      };
 play(){
         if(this.player.currentRoom == this.player.targetRoom){
-            console.log('Congrats! you win!');
+            this.explore();
             return
         }
         else{this.explore()}

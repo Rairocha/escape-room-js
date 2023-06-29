@@ -35,12 +35,12 @@ class Object {
 
     popup(game){
       let popup = document.getElementById('cluePopup');
-      popup.classList.add('show')
+      popup.style.display='block';
       let cluepop;
       if (this.interacted){cluepop=this.clueInteraction} else{cluepop=this.clue}
       document.querySelector('#cluePopup>.popup-content>h4').innerHTML=`You check out the ${this.name} ${cluepop}`
       document.querySelector('#closePopup').addEventListener("click", function () {
-        popup.classList.remove("show");
+        popup.style.display='none';
     });
     }
   };
