@@ -1,6 +1,7 @@
 class Room{
-    constructor(objects){
+    constructor(objects,path){
         this.objects = objects;
+        this.image = path
     }
     interact(elementName,text){
         if (this.objects.includes(elementName)){
