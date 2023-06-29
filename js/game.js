@@ -30,8 +30,8 @@ class Game {
 
       this.roomsObject= 
       {'Living Room': new Room(['couch','piano','doorA'],'../images/room1.jpg'),
-      Bedroom : new Room(['bed','doorA','doorB'],'../images/room2.jpg'),
-      Outside: new Room(['winFlag'],'../images/outside.jpg')};
+      Bedroom : new Room(['bed','doorA','doorB'],'../../images/room2.jpg'),
+      Outside: new Room(['winFlag'],'../../images/outside.jpg')};
       this.score = 0;
       this.lives = 3;
       this.gameIsOver = false;
@@ -53,7 +53,7 @@ class Game {
      };
 play(){
     // console.log(`You are in the ${this.player.currentRoom} which contains ${this.roomsObject[this.player.currentRoom].objects}`);
-    this.gameScreen.style.backgroundImage = `url(./${this.roomsObject[this.player.currentRoom].image})`
+    this.gameScreen.style.backgroundImage = `url(${this.roomsObject[this.player.currentRoom].image})`
     this.roomsObject[this.player.currentRoom].objects.forEach(element => {
         
         let furniture = this.gameScreen.appendChild(document.createElement("div"));
