@@ -23,30 +23,20 @@ body {
   width: 98vw;
   padding: 10px 0px;
   justify-content: center;
+  margin:0;
 }
 
 #game-screen {
   display: none;
   align-content: center;
-  padding: 20px 0px;
+  padding: 0;
   overflow: hidden;
   position: relative;
-  background-size: cover;
+  background-size:contain;
   width: 850px;
-
 }
 
-@keyframes slide {
-  0% {
-    background-position: 0 -1000px;
-  }
-  95% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 0 50px;
-  }
-}
+
 
 #game-end {
   display: none;
@@ -105,3 +95,7 @@ body button {
   align-self: flex-start;
 }
 .popup-content h4{color: #096a80;}
+
+.furniture{
+  position:absolute;
+}

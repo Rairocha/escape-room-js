@@ -5,18 +5,18 @@ class Game {
       this.gameScreen = document.getElementById("game-screen");
       this.gameEndScreen = document.getElementById("game-end");
       this.player = new Player('Outside','Living Room');
-      this.height = "600px";
-      this.width = "500px";
+      this.height = "512px";
+      this.width = "512px";
       this.objectsObject = 
       { couch:new Object('Couch','nothing in there','nothing in there',
                 {height:'109px',width:'157px',left:'12px',top:'307px'},false),
       piano:new Object('Piano','you find a key','you already found this key',
                 {height:'198px',width:'207px',left:'286px',top:'265px'},'Door A'),
       doorA:new Object('Door A','This door is locked','This door is unlocked',
-                        {height:{'Living Room':'116px','Bedroom':'212px'},
-                        width:{'Living Room':'193px','Bedroom':'34px'},
-                        left:{'Living Room':'183px','Bedroom':'160px'},
-                        top:{'Living Room':'57px','Bedroom':'72px'}},
+                        {height:{'Living Room':'22%','Bedroom':'212px'},
+                        width:{'Living Room':'32%','Bedroom':'34px'},
+                        left:{'Living Room':'35%','Bedroom':'160px'},
+                        top:{'Living Room':'0px','Bedroom':'72px'}},
                         false,['Living Room','Bedroom']),
       bed:new Object('Bed','nothing in there','nothing in there',
                 {height:'171px',width:'104px',left:'186px',top:'294px'},'Door B'),
