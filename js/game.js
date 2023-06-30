@@ -8,29 +8,31 @@ class Game {
       this.height = "512px";
       this.width = "512px";
       this.objectsObject = 
-      { couch:new Object('Couch','nothing in there','nothing in there',
-                {height:'109px',width:'157px',left:'12px',top:'307px'},false),
-      piano:new Object('Piano','you find a key','you already found this key',
-                {height:'198px',width:'207px',left:'286px',top:'265px'},'Door A'),
+      { couch:new Object('Couch','you take a nap before remembering you woke up in a strange room and should probably be looking for a way out. There is nothing in there',
+      'It looks rather confortable... maybe you should? No! No more napping. There is nothing in there',
+                {height:'109px',width:'97px',left:'12px',top:'307px'},false),
+      piano:new Object('Piano','after playing a cheerfull tune to motivate yourself you move on to escaping this strange room. You find a key',
+      'since you already found this key you no longer need music to keep going. You got this!',
+                {height:'198px',width:'207px',left:'286px',top:'165px'},'Door A'),
       doorA:new Object('Door A','This door is locked','This door is unlocked',
-                        {height:{'Living Room':'22%','Bedroom':'212px'},
-                        width:{'Living Room':'32%','Bedroom':'34px'},
-                        left:{'Living Room':'35%','Bedroom':'160px'},
-                        top:{'Living Room':'0px','Bedroom':'72px'}},
+                        {height:{'Living Room':'42%','Bedroom':'212px'},
+                        width:{'Living Room':'22%','Bedroom':'34px'},
+                        left:{'Living Room':'35%','Bedroom':'60px'},
+                        top:{'Living Room':'-150px','Bedroom':'-110px'}},
                         false,['Living Room','Bedroom']),
-      bed:new Object('Bed','nothing in there','nothing in there',
-                {height:'171px',width:'104px',left:'186px',top:'294px'},'Door B'),
+      bed:new Object('Bed','this bed looks awesome. Perfect for naping? Not now. There is nothing in there','there is nothing in there',
+                {height:'121px',width:'154px',left:'186px',top:'294px'},false),
       doorB:new Object('Door B','This door is locked','This door is unlocked',
-            {height:'100%',width:'10%',left:'290px',top:'0px'},false,['Bedroom','Outside']),
-      kingBed:new Object('King Bed','nothing in there','nothing in there',
-                {height:'0px',width:'0px',left:'0px',top:'0px'},false),
+            {height:'212px',width:'34px',left:'410px',top:'-310px'},false,['Bedroom','Outside']),
+      sideTable:new Object('Side Table','key on the side table? Makes sense. You find a key','there is something weird about this side table almost like an AI model that has a vague idea what furniture looks like tried to make it. There is nothing in there',
+                {height:'150px',width:'60px',left:'440px',top:'160px'},'Door B'),
       winFlag:new Object('The outside word','Congrats you win','Congrats you win',
                 {height:'100%',width:'100%',left:'0px',top:'0px'},false)
         };
 
       this.roomsObject= 
       {'Living Room': new Room(['couch','piano','doorA'],'./images/room1.jpg'),
-      Bedroom : new Room(['bed','doorA','doorB'],'./images/room2.jpg'),
+      Bedroom : new Room(['bed','sideTable','doorA','doorB'],'./images/room2.jpg'),
       Outside: new Room(['winFlag'],'./images/outside.jpg')};
       this.score = 0;
       this.lives = 3;
